@@ -1,0 +1,46 @@
+{% extends 'clerk/main.html' %}
+
+{% block content %} 
+
+{% if request.user.is_authenticated %}
+<p>{{request.user}}</p>
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+<hr>
+<h1>Clerk Applications List</h1>
+
+<h3><a href="{% url 'create-app' %}">Fill Application Form</a></h3>
+
+<br/><br/><br/>
+
+<form method="GET">
+<input type="text" name="search-area" value="{{search_input}}" />
+<input type="submit" value="Search" />
+</form>
+
+<br/><br/><br/>
+
+<table>
+<tr>
+    <th>Applications</th>
+    <th>Details</th>
+</tr>
+{% for apps in application_list%}
+<tr>
+    <td>{{apps.apptitle}}</td>
+    <td><a href="{% url 'user' apps.id %}">View</a></td>
+    <td><a href="{% url 'app-edit' apps.id %}">Edit</a></td>
+    <td><a href="{% url 'app-delete' apps.id %}">Delete</a></td>
+</tr>
+{% empty %}
+    <h3>No applications</h3>
+{% endfor %}
+</table>
+
+<p>Total Applications Pending: {{count}} </p>
+<p>Total Applications Completed: {{c_count}} </p>
+
+{% endblock content %}

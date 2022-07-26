@@ -1,0 +1,15 @@
+{% extends 'clerk/main.html' %}
+
+{% block content %} 
+
+<a href="{% url 'users' %}"></a>
+
+<a href="{% url 'users' %}">Go Back</a>
+
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete application: "{{app_detail}}"</p>
+    <input type="submit" value="Delete" />
+</form>
+
+{% endblock content %}

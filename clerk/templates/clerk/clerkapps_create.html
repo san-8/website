@@ -1,0 +1,15 @@
+{% extends 'clerk/main.html' %}
+
+{% block content %} 
+
+<h1>Application Form</h1>
+
+<a href="{% url 'users' %}">Go Back</a>
+
+<form method='POST' action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="Submit" value="Submit" />
+</form>
+
+{% endblock content %}

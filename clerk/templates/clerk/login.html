@@ -1,0 +1,16 @@
+{% extends 'clerk/main.html' %}
+
+{% block content %} 
+
+<h1>Clerk Login</h1>
+
+<form method='POST' action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="Submit" value="Submit" />
+</form>
+
+<p>Don't have an account?<a href="{% url 'register' %}">Register</a></p>
+
+
+{% endblock content %}

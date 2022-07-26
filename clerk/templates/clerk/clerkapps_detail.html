@@ -1,0 +1,11 @@
+{% extends 'clerk/main.html' %}
+
+{% block content %} 
+<h1>Application Number: {{app_detail.id}} </h1>
+<p>Application title: {{app_detail.apptitle}}</p>
+<p>Application description: {{app_detail.appdesc}}</p>
+<p>Application Status: {{app_detail.status}}</p>
+<p>Application Created DateTime: {{app_detail.created}}</p>
+<p>Application Created By: {{app_detail.clerk}}</p>
+
+{% endblock content %}
